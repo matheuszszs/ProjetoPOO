@@ -22,9 +22,8 @@ import javax.swing.JOptionPane;
  */
 public class UsuarioDAO {
     public boolean autenticar(String email, String senha){
-        String sql = "SELECT * from TBUSUARIO "
-                +"WHERE email = ? and senha = ? "
-                +"and ativo = true";
+        String sql = "SELECT * from donoLoja "
+                +"WHERE email = ? and senha = ? ";
         
         GerenciadorConexao gerenciador = new GerenciadorConexao();
         Connection con = gerenciador.getConexao();
@@ -48,9 +47,9 @@ public class UsuarioDAO {
     }
     
     public boolean adicionarUsuario(Usuario u){
-        String sql = "INSERT into TBUSUARIO (nome, email, "
-                + "senha, dataNasc, ativo) "
-                + "VALUES (?,?,?,?,?)";
+        String sql = "INSERT into cadastroUusario (nomeDono, telefone, "
+                + "nomePet, dataNasc) "
+                + "VALUES (?,?,?,?)";
         
         GerenciadorConexao gerenciador = new GerenciadorConexao();
         Connection con = gerenciador.getConexao();
@@ -58,14 +57,14 @@ public class UsuarioDAO {
         
         try {
             stmt = con.prepareStatement(sql);
-            stmt.setString(1, u.getNome()); 
-            stmt.setString(2, u.getEmail());
-            stmt.setString(3, u.getSenha());
+            stmt.setString(1, u.getNomeDono()); 
+            stmt.setString(2, u.getTelefone());
+            stmt.setString(3, u.getNomePet());
             stmt.setDate(4, new java.sql.Date(u.getDataNasc().getTime()));
             stmt.setBoolean(5, u.isAtivo());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,
-                    "Usuário: " + u.getNome() + " inserido com sucesso!");
+                    "Usuário: " + u.getNomeDono() + " inserido com sucesso!");
             return true;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERRO: " + e.getMessage());
@@ -107,9 +106,9 @@ public class UsuarioDAO {
                 Usuario usuario = new Usuario();
 
                 usuario.setPkUsuario(rs.getLong("pkusuario"));
-                usuario.setNome(rs.getString("nome"));
-                usuario.setEmail(rs.getString("email"));
-                usuario.setSenha(rs.getString("senha"));
+                usuario.setNomeDono(rs.getString("nome do dono"));
+                usuario.setTelefone(rs.getString("telefone"));
+                usuario.setNomePet(rs.getString("nome do pet"));
                 usuario.setDataNasc(rs.getDate("datanasc"));
                 usuario.setAtivo(rs.getBoolean("ativo"));
                 usuarios.add(usuario);
@@ -143,9 +142,9 @@ public class UsuarioDAO {
             if (rs.next()) {
 
                 usuario.setPkUsuario(rs.getLong("pkusuario"));
-                usuario.setNome(rs.getString("nome"));
-                usuario.setEmail(rs.getString("email"));
-                usuario.setSenha(rs.getString("senha"));
+                usuario.setNomeDono(rs.getString("nome do dono"));
+                usuario.setTelefone(rs.getString("email"));
+                usuario.setNomePet(rs.getString("nome do pet"));
                 usuario.setDataNasc(rs.getDate("datanasc"));
                 usuario.setAtivo(rs.getBoolean("ativo"));
             }
@@ -174,15 +173,15 @@ public class UsuarioDAO {
         
         try {
             stmt = con.prepareStatement(sql);
-            stmt.setString(1, usuario.getNome()); 
-            stmt.setString(2, usuario.getEmail());
-            stmt.setString(3, usuario.getSenha());
+            stmt.setString(1, usuario.getNomeDono()); 
+            stmt.setString(2, usuario.getTelefone());
+            stmt.setString(3, usuario.getNomePet());
             stmt.setDate(4, new java.sql.Date(usuario.getDataNasc().getTime()));
             stmt.setBoolean(5, usuario.isAtivo());
             stmt.setLong(6, usuario.getPkUsuario());
             stmt.executeUpdate();
             JOptionPane.showMessageDialog(null,
-                    "Usuário: " + usuario.getNome() + " inserido com sucesso!");
+                    "Usuário: " + usuario.getNomeDono() + " inserido com sucesso!");
             return true;
         } catch (SQLException e) {
             JOptionPane.showMessageDialog(null, "ERRO: " + e.getMessage());

@@ -176,7 +176,7 @@ public class FRConUsuario extends javax.swing.JDialog {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(20, 20, 20)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
                     .addComponent(jLabel3))
                 .addGap(18, 18, 18)
@@ -247,8 +247,8 @@ public class FRConUsuario extends javax.swing.JDialog {
         for(Usuario usu : controller.readForDesc(
                 cbFiltro.getSelectedIndex(), txtFiltro.getText())){
             Object[] linha = {usu.getPkUsuario()
-                    , usu.getNome()
-                    , usu.getEmail()
+                    , usu.getNomeDono()
+                    , usu.getTelefone()
                     , Utils.converterDateToString(usu.getDataNasc())
                     , usu.ativoToString()};
             modelo.addRow(linha);

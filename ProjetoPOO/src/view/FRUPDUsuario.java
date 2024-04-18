@@ -50,8 +50,8 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JTextField();
+        txtNomeDono = new javax.swing.JTextField();
+        txtNomePet = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -59,11 +59,11 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         txtDataNasc = new javax.swing.JFormattedTextField();
         btnCancelar = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
-        txtSenha = new javax.swing.JPasswordField();
         jLabel2 = new javax.swing.JLabel();
         btnDeletar = new javax.swing.JButton();
         lbCodigo = new javax.swing.JLabel();
         txtCodigo = new javax.swing.JTextField();
+        txtTelefone = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -78,21 +78,21 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         jLabel3.setText("Nome do Dono");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 170, -1, -1));
 
-        txtNome.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtNomeDono.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtNomeDono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtNomeKeyPressed(evt);
+                txtNomeDonoKeyPressed(evt);
             }
         });
-        jPanel1.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 200, 402, -1));
+        jPanel1.add(txtNomeDono, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 200, 402, -1));
 
-        txtEmail.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtNomePet.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtNomePet.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtEmailKeyPressed(evt);
+                txtNomePetKeyPressed(evt);
             }
         });
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 272, 402, -1));
+        jPanel1.add(txtNomePet, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 350, 402, -1));
 
         jLabel4.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
         jLabel4.setText("Telefone");
@@ -152,15 +152,6 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         });
         jPanel1.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(71, 548, 143, -1));
 
-        txtSenha.setBackground(new java.awt.Color(204, 204, 204));
-        txtSenha.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtSenhaKeyPressed(evt);
-            }
-        });
-        jPanel1.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 344, 402, -1));
-
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/alterar.png"))); // NOI18N
         jPanel1.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 50, -1, -1));
@@ -188,6 +179,14 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         txtCodigo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         jPanel1.add(txtCodigo, new org.netbeans.lib.awtextra.AbsoluteConstraints(238, 118, 190, -1));
 
+        txtTelefone.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTelefoneKeyPressed(evt);
+            }
+        });
+        jPanel1.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(32, 272, 402, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -202,17 +201,16 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyPressed
+    private void txtNomeDonoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeDonoKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            txtEmail.requestFocus();
+            txtNomePet.requestFocus();
         }
-    }//GEN-LAST:event_txtNomeKeyPressed
+    }//GEN-LAST:event_txtNomeDonoKeyPressed
 
-    private void txtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyPressed
+    private void txtNomePetKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomePetKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-            txtSenha.requestFocus();
         }
-    }//GEN-LAST:event_txtEmailKeyPressed
+    }//GEN-LAST:event_txtNomePetKeyPressed
 
     private void ckbAtivoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ckbAtivoKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
@@ -239,16 +237,10 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         //Salvar no banco de dados
         Usuario usu = new Usuario();
         usu.setPkUsuario(pkUsuario);
-        usu.setNome(txtNome.getText());
-        usu.setEmail(txtEmail.getText());
+        usu.setNomeDono(txtNomeDono.getText());
+        usu.setTelefone(txtNomePet.getText());
 
-        String senha= "";
-        if(txtSenha.isEditable()){
-            senha = new String(txtSenha.getPassword());
-            senha = Utils.calcularMD5(senha);
-        }else{
-            senha = new String (txtSenha.getPassword());
-        }    
+           
         usu.setAtivo(ckbAtivo.isSelected());
         
         Date data = Utils.converterStringToDate(
@@ -271,11 +263,6 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         }
     }//GEN-LAST:event_btnSalvarKeyPressed
 
-    private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
-        if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-        }
-    }//GEN-LAST:event_txtSenhaKeyPressed
-
     private void btnDeletarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeletarMouseClicked
         int resposta = JOptionPane.showConfirmDialog(null,
                 "Deseja excluir o usuário?" , 
@@ -295,24 +282,28 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnDeletarActionPerformed
 
+    private void txtTelefoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefoneKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefoneKeyPressed
+
      private boolean verificaCampos(){
-        if(txtNome.getText().equals("")){
+        if(txtNomeDono.getText().equals("")){
             JOptionPane.showMessageDialog(null,"Campo 'Nome' em branco");
             return false;
         }
         
-        if(!txtNome.getText().matches("^[\\p{L} ]+$")){
+        if(!txtNomeDono.getText().matches("^[\\p{L} ]+$")){
             JOptionPane.showMessageDialog(null,
                     "Campo 'Nome' possui caracteres inválidos");
             return false;
         }
         
-        if(txtEmail.getText().equals("")){
+        if(txtNomePet.getText().equals("")){
             JOptionPane.showMessageDialog(null,
                     "Campo 'Email' em branco");
             return false;
         }
-        if(!txtEmail.getText().matches(
+        if(!txtNomePet.getText().matches(
                 "^[a-zA-Z._]+@[a-zA-Z._]+.[a-zA-Z._]+$")){
             JOptionPane.showMessageDialog(null,
                     "Campo 'Email' possui formato inválido");
@@ -327,14 +318,6 @@ public class FRUPDUsuario extends javax.swing.JDialog {
             return false;
         }
         
-        String senha = new String(txtSenha.getPassword());
-        
-        if(senha.length() < 8){
-            JOptionPane.showMessageDialog(null,
-                    "Campo 'Senha' deve ser maior que 8 caracteres");
-            return false;
-        }
-        
         return true;
     }
     
@@ -345,11 +328,9 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         String codigo = String.valueOf(usu.getPkUsuario());
         
         txtCodigo.setText(codigo);
-        txtNome.setText(usu.getNome());
-        txtEmail.setText(usu.getEmail());
+        txtNomeDono.setText(usu.getNomeDono());
+        txtNomePet.setText(usu.getTelefone());
         txtDataNasc.setText(Utils.converterDateToString(usu.getDataNasc()));
-        txtSenha.setText(usu.getSenha());
-        setSenhaUsuario(usu.getSenha());
         ckbAtivo.setSelected(usu.isAtivo());
     }
      
@@ -410,8 +391,8 @@ public class FRUPDUsuario extends javax.swing.JDialog {
     private javax.swing.JLabel lbCodigo;
     private javax.swing.JTextField txtCodigo;
     private javax.swing.JFormattedTextField txtDataNasc;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtNome;
-    private javax.swing.JPasswordField txtSenha;
+    private javax.swing.JTextField txtNomeDono;
+    private javax.swing.JTextField txtNomePet;
+    private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }
