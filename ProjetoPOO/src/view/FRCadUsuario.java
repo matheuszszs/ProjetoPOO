@@ -43,8 +43,8 @@ public class FRCadUsuario extends javax.swing.JDialog {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel3 = new javax.swing.JLabel();
-        txtNome = new javax.swing.JTextField();
-        txtEmail = new javax.swing.JTextField();
+        txtNomeDono = new javax.swing.JTextField();
+        txtNomePet = new javax.swing.JTextField();
         jLabel4 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
         jLabel6 = new javax.swing.JLabel();
@@ -52,12 +52,12 @@ public class FRCadUsuario extends javax.swing.JDialog {
         txtDataNasc = new javax.swing.JFormattedTextField();
         btnCancelar = new javax.swing.JButton();
         btnSalvar = new javax.swing.JButton();
-        txtSenha = new javax.swing.JPasswordField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
         lblFoto = new javax.swing.JLabel();
         btnAlterarImagem = new javax.swing.JButton();
+        txtTelefone = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
@@ -72,21 +72,24 @@ public class FRCadUsuario extends javax.swing.JDialog {
         jLabel3.setText("Nome do Dono:");
         jPanel1.add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 240, -1, -1));
 
-        txtNome.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        txtNome.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtNomeDono.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtNomeDono.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtNomeKeyPressed(evt);
+                txtNomeDonoKeyPressed(evt);
             }
         });
-        jPanel1.add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 358, -1));
+        jPanel1.add(txtNomeDono, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 270, 358, -1));
 
-        txtEmail.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        txtEmail.addKeyListener(new java.awt.event.KeyAdapter() {
+        txtNomePet.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtNomePet.addKeyListener(new java.awt.event.KeyAdapter() {
             public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtEmailKeyPressed(evt);
+                txtNomePetKeyPressed(evt);
+            }
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtNomePetKeyReleased(evt);
             }
         });
-        jPanel1.add(txtEmail, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 358, -1));
+        jPanel1.add(txtNomePet, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 358, -1));
 
         jLabel4.setFont(new java.awt.Font("Gill Sans MT", 0, 20)); // NOI18N
         jLabel4.setText("Telefone: ");
@@ -151,14 +154,6 @@ public class FRCadUsuario extends javax.swing.JDialog {
         });
         jPanel1.add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(170, 560, -1, -1));
 
-        txtSenha.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
-        txtSenha.addKeyListener(new java.awt.event.KeyAdapter() {
-            public void keyPressed(java.awt.event.KeyEvent evt) {
-                txtSenhaKeyPressed(evt);
-            }
-        });
-        jPanel1.add(txtSenha, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 410, 358, -1));
-
         jLabel8.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel8.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/gato.png"))); // NOI18N
         jPanel1.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 90, -1, -1));
@@ -170,8 +165,6 @@ public class FRCadUsuario extends javax.swing.JDialog {
         jLabel10.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel10.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/mais.png"))); // NOI18N
         jPanel1.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 70, -1, -1));
-
-        lblFoto.setText("jLabel2");
         jPanel1.add(lblFoto, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 130, 100, 100));
 
         btnAlterarImagem.setFont(new java.awt.Font("Gill Sans MT", 0, 14)); // NOI18N
@@ -183,18 +176,28 @@ public class FRCadUsuario extends javax.swing.JDialog {
         });
         jPanel1.add(btnAlterarImagem, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 170, -1, -1));
 
+        txtTelefone.setFont(new java.awt.Font("sansserif", 0, 18)); // NOI18N
+        txtTelefone.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                txtTelefoneKeyPressed(evt);
+            }
+        });
+        jPanel1.add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 340, 358, -1));
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 615, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 688, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 573, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 607, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -212,12 +215,9 @@ public class FRCadUsuario extends javax.swing.JDialog {
         
         //Salvar no banco de dados
         Usuario usu = new Usuario();
-        usu.setNome(txtNome.getText());
-        usu.setEmail(txtEmail.getText());
-        
-        String senha = new String(txtSenha.getPassword());
-        senha = Utils.calcularMD5(senha);
-        usu.setSenha(senha);
+        usu.setNomeDono(txtNomeDono.getText());
+        usu.setNomePet(txtNomePet.getText());
+
         usu.setAtivo(ckbAtivo.isSelected());
         
         Date data = Utils.converterStringToDate(
@@ -234,21 +234,16 @@ public class FRCadUsuario extends javax.swing.JDialog {
         // TODO add your handling code here:
     }//GEN-LAST:event_btnSalvarMouseEntered
 
-    private void txtNomeKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeKeyPressed
+    private void txtNomeDonoKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomeDonoKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-           txtEmail.requestFocus();
+           txtNomePet.requestFocus();
         }
-    }//GEN-LAST:event_txtNomeKeyPressed
+    }//GEN-LAST:event_txtNomeDonoKeyPressed
 
-    private void txtEmailKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtEmailKeyPressed
+    private void txtNomePetKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomePetKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
-           txtSenha.requestFocus();
         }
-    }//GEN-LAST:event_txtEmailKeyPressed
-
-    private void txtSenhaKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtSenhaKeyPressed
-
-    }//GEN-LAST:event_txtSenhaKeyPressed
+    }//GEN-LAST:event_txtNomePetKeyPressed
 
     private void txtDataNascKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtDataNascKeyPressed
         if(evt.getKeyCode() == KeyEvent.VK_ENTER){
@@ -290,27 +285,35 @@ public class FRCadUsuario extends javax.swing.JDialog {
 ;        }
     }//GEN-LAST:event_btnAlterarImagemMouseClicked
 
+    private void txtTelefoneKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtTelefoneKeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefoneKeyPressed
+
+    private void txtNomePetKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtNomePetKeyReleased
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomePetKeyReleased
+
     private boolean verificaCampos(){
-        if(txtNome.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Campo 'Nome' em branco");
+        if(txtNomeDono.getText().equals("")){
+            JOptionPane.showMessageDialog(null,"Campo 'NomeDono' em branco");
             return false;
         }
         
-        if(!txtNome.getText().matches("^[\\p{L} ]+$")){
+        if(!txtNomeDono.getText().matches("^[\\p{L} ]+$")){
             JOptionPane.showMessageDialog(null,
                     "Campo 'Nome' possui caracteres inválidos");
             return false;
         }
         
-        if(txtEmail.getText().equals("")){
+        if(txtNomePet.getText().equals("")){
             JOptionPane.showMessageDialog(null,
-                    "Campo 'Email' em branco");
+                    "Campo 'Telefone' em branco");
             return false;
         }
-        if(!txtEmail.getText().matches(
-                "^[a-zA-Z._]+@[a-zA-Z._]+.[a-zA-Z._]+$")){
+        if(!txtTelefone.getText().matches(
+                "^[0-9]{11}$")){
             JOptionPane.showMessageDialog(null,
-                    "Campo 'Email' possui formato inválido");
+                    "Campo 'Telefone' possui formato inválido");
             return false;
         }
         
@@ -321,15 +324,6 @@ public class FRCadUsuario extends javax.swing.JDialog {
                 +" Ex: 01/01/2000");
             return false;
         }
-        
-        String senha = new String(txtSenha.getPassword());
-        
-        if(senha.length() < 8){
-            JOptionPane.showMessageDialog(null,
-                    "Campo 'Senha' deve ser maior que 8 caracteres");
-            return false;
-        }
-        
         
         
         return true;
@@ -393,8 +387,8 @@ public class FRCadUsuario extends javax.swing.JDialog {
     private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblFoto;
     private javax.swing.JFormattedTextField txtDataNasc;
-    private javax.swing.JTextField txtEmail;
-    private javax.swing.JTextField txtNome;
-    private javax.swing.JPasswordField txtSenha;
+    private javax.swing.JTextField txtNomeDono;
+    private javax.swing.JTextField txtNomePet;
+    private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

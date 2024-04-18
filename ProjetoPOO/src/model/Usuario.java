@@ -13,9 +13,9 @@ import java.util.Date;
  */
 public class Usuario {
     private long pkUsuario;
-    private String nome;
-    private String email;
-    private String senha;
+    private String nomeDono;
+    private String telefone;
+    private String nomePet;
     private Date dataNasc;
     private boolean ativo;
 
@@ -24,9 +24,9 @@ public class Usuario {
     public Usuario(long pkUsuario, String nome, String email, 
             String senha, Date dataNasc, boolean ativo) {
         this.pkUsuario = pkUsuario;
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
+        this.nomeDono = nomeDono;
+        this.telefone = telefone;
+        this.nomePet = nomePet;
         this.dataNasc = dataNasc;
         this.ativo = ativo;
     }
@@ -39,28 +39,28 @@ public class Usuario {
         this.pkUsuario = pkUsuario;
     }
 
-    public String getNome() {
-        return nome;
+    public String getNomeDono() {
+        return nomeDono;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
+    public void setNomeDono(String nome) {
+        this.nomeDono = nomeDono;
     }
 
-    public String getEmail() {
-        return email;
+    public String getTelefone() {
+        return telefone;
     }
 
-    public void setEmail(String email) {
-        this.email = email;
+    public void setTelefone(String email) {
+        this.telefone = telefone;
     }
 
-    public String getSenha() {
-        return senha;
+    public String getNomePet() {
+        return nomePet;
     }
 
-    public void setSenha(String senha) {
-        this.senha = senha;
+    public void setNomePet(String senha) {
+        this.nomePet = nomePet;
     }
 
     public Date getDataNasc() {
