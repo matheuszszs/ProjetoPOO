@@ -219,7 +219,7 @@ public class FRCadUsuario extends javax.swing.JDialog {
         usu.setNomePet(txtNomePet.getText());
 
         usu.setAtivo(ckbAtivo.isSelected());
-        
+        usu.setTelefone(txtTelefone.getText());
         Date data = Utils.converterStringToDate(
                 txtDataNasc.getText());
         usu.setDataNasc(data);
