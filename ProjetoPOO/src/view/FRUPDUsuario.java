@@ -18,7 +18,7 @@ import utils.Utils;
  * @author s.lucas
  */
 public class FRUPDUsuario extends javax.swing.JDialog {
-    private int pkUsuario;
+    private int codigo;
     private String senhaUsuario;
     
     public String getSenhaUsuario(){
@@ -29,8 +29,8 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         this.senhaUsuario = senhaUsuario;
     }
 
-    public void setPkUsuario(int pkUsuario) {
-        this.pkUsuario = pkUsuario;
+    public void setPkUsuario(int codigo) {
+        this.codigo = codigo;
     }
     
     public FRUPDUsuario(java.awt.Frame parent, boolean modal) {
@@ -169,7 +169,7 @@ public class FRUPDUsuario extends javax.swing.JDialog {
                 btnDeletarActionPerformed(evt);
             }
         });
-        jPanel1.add(btnDeletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(431, 548, 130, -1));
+        jPanel1.add(btnDeletar, new org.netbeans.lib.awtextra.AbsoluteConstraints(400, 546, 130, 40));
 
         lbCodigo.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
         lbCodigo.setText("Código: ");
@@ -236,7 +236,7 @@ public class FRUPDUsuario extends javax.swing.JDialog {
 
         //Salvar no banco de dados
         Usuario usu = new Usuario();
-        usu.setPkUsuario(pkUsuario);
+        usu.setPkUsuario(codigo);
         usu.setNomeDono(txtNomeDono.getText());
         usu.setTelefone(txtNomePet.getText());
 
@@ -270,7 +270,7 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         
         if(resposta == JOptionPane.YES_OPTION){
             UsuarioController controller = new UsuarioController();
-            if(controller.excluirUsuario(pkUsuario)){
+            if(controller.excluirUsuario(codigo)){
                 this.dispose();
             }
         }
@@ -288,7 +288,7 @@ public class FRUPDUsuario extends javax.swing.JDialog {
 
      private boolean verificaCampos(){
         if(txtNomeDono.getText().equals("")){
-            JOptionPane.showMessageDialog(null,"Campo 'Nome' em branco");
+            JOptionPane.showMessageDialog(null,"Campo 'NomeDono' em branco");
             return false;
         }
         
@@ -300,13 +300,13 @@ public class FRUPDUsuario extends javax.swing.JDialog {
         
         if(txtNomePet.getText().equals("")){
             JOptionPane.showMessageDialog(null,
-                    "Campo 'Email' em branco");
+                    "Campo 'Telefone' em branco");
             return false;
         }
-        if(!txtNomePet.getText().matches(
-                "^[a-zA-Z._]+@[a-zA-Z._]+.[a-zA-Z._]+$")){
+        if(!txtTelefone.getText().matches(
+                "^[0-9]{11}$")){
             JOptionPane.showMessageDialog(null,
-                    "Campo 'Email' possui formato inválido");
+                    "Campo 'Telefone' possui formato inválido");
             return false;
         }
         
@@ -318,18 +318,20 @@ public class FRUPDUsuario extends javax.swing.JDialog {
             return false;
         }
         
+        
         return true;
     }
     
     public void carregarUsuario(){
         UsuarioController controller = new UsuarioController();
-        Usuario usu = controller.readForPk(pkUsuario);
+        Usuario usu = controller.readForPk(codigo);
         
         String codigo = String.valueOf(usu.getPkUsuario());
         
         txtCodigo.setText(codigo);
         txtNomeDono.setText(usu.getNomeDono());
-        txtNomePet.setText(usu.getTelefone());
+        txtTelefone.setText(usu.getTelefone());
+        txtNomePet.setText(usu.getNomePet());
         txtDataNasc.setText(Utils.converterDateToString(usu.getDataNasc()));
         ckbAtivo.setSelected(usu.isAtivo());
     }

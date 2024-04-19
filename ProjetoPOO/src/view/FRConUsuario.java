@@ -249,6 +249,7 @@ public class FRConUsuario extends javax.swing.JDialog {
             Object[] linha = {usu.getPkUsuario()
                     , usu.getNomeDono()
                     , usu.getTelefone()
+                    , usu.getNomePet()
                     , Utils.converterDateToString(usu.getDataNasc())
                     , usu.ativoToString()};
             modelo.addRow(linha);

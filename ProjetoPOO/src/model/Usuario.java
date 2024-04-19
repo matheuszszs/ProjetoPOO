@@ -12,7 +12,7 @@ import java.util.Date;
  * @author aluno.saolucas
  */
 public class Usuario {
-    private long pkUsuario;
+    private long codigo;
     private String nomeDono;
     private String telefone;
     private String nomePet;
@@ -21,9 +21,9 @@ public class Usuario {
 
     public Usuario(){};
     
-    public Usuario(long pkUsuario, String nome, String email, 
-            String senha, Date dataNasc, boolean ativo) {
-        this.pkUsuario = pkUsuario;
+    public Usuario(long pkUsuario, String nomeDono, String telefone, 
+            String nomePet, Date dataNasc, boolean ativo) {
+        this.codigo = pkUsuario;
         this.nomeDono = nomeDono;
         this.telefone = telefone;
         this.nomePet = nomePet;
@@ -32,18 +32,18 @@ public class Usuario {
     }
     
     public long getPkUsuario() {
-        return pkUsuario;
+        return codigo;
     }
 
     public void setPkUsuario(long pkUsuario) {
-        this.pkUsuario = pkUsuario;
+        this.codigo = pkUsuario;
     }
 
     public String getNomeDono() {
         return nomeDono;
     }
 
-    public void setNomeDono(String nome) {
+    public void setNomeDono(String nomeDono) {
         this.nomeDono = nomeDono;
     }
 
@@ -51,7 +51,7 @@ public class Usuario {
         return telefone;
     }
 
-    public void setTelefone(String email) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
 
@@ -59,7 +59,7 @@ public class Usuario {
         return nomePet;
     }
 
-    public void setNomePet(String senha) {
+    public void setNomePet(String nomePet) {
         this.nomePet = nomePet;
     }
 

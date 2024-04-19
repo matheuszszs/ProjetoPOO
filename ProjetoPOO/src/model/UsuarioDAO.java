@@ -47,9 +47,9 @@ public class UsuarioDAO {
     }
     
     public boolean adicionarUsuario(Usuario u){
-        String sql = "INSERT into cadastroUusario (nomeDono, telefone, "
-                + "nomePet, dataNasc) "
-                + "VALUES (?,?,?,?)";
+        String sql = "INSERT into cadastroUsuario (nomeDono, telefone, "
+                + "nomePet, dataNasc, ativo) "
+                + "VALUES (?,?,?,?,?)";
         
         GerenciadorConexao gerenciador = new GerenciadorConexao();
         Connection con = gerenciador.getConexao();
@@ -76,12 +76,12 @@ public class UsuarioDAO {
     }
     
     public List<Usuario> readForDesc(int tipo, String desc) {
-        String sql = "SELECT * FROM tbusuario";
+        String sql = "SELECT * FROM cadastroUsuario";
         if(!desc.equals("")){
             if (tipo == 0 || tipo == 1)
-                sql = sql + " WHERE nome LIKE ?";
+                sql = sql + " WHERE nomeDono LIKE ?";
             else
-                sql = sql + " WHERE email LIKE ?";
+                sql = sql + " WHERE telefone LIKE ?";
         }
         
         GerenciadorConexao gerenciador = new GerenciadorConexao();
@@ -105,11 +105,11 @@ public class UsuarioDAO {
 
                 Usuario usuario = new Usuario();
 
-                usuario.setPkUsuario(rs.getLong("pkusuario"));
-                usuario.setNomeDono(rs.getString("nome do dono"));
+                usuario.setPkUsuario(rs.getLong("codigo"));
+                usuario.setNomeDono(rs.getString("nomeDono"));
                 usuario.setTelefone(rs.getString("telefone"));
-                usuario.setNomePet(rs.getString("nome do pet"));
-                usuario.setDataNasc(rs.getDate("datanasc"));
+                usuario.setNomePet(rs.getString("nomePet"));
+                usuario.setDataNasc(rs.getDate("dataNasc"));
                 usuario.setAtivo(rs.getBoolean("ativo"));
                 usuarios.add(usuario);
             }
@@ -125,7 +125,7 @@ public class UsuarioDAO {
     }
     
     public Usuario readForPk(long pk){
-        String sql = "SELECT * FROM tbusuario WHERE pkusuario = ?";
+        String sql = "SELECT * FROM cadastrousuario WHERE codigo = ?";
         
         GerenciadorConexao gerenciador = new GerenciadorConexao();
         Connection con = gerenciador.getConexao();
@@ -141,11 +141,11 @@ public class UsuarioDAO {
 
             if (rs.next()) {
 
-                usuario.setPkUsuario(rs.getLong("pkusuario"));
-                usuario.setNomeDono(rs.getString("nome do dono"));
-                usuario.setTelefone(rs.getString("email"));
-                usuario.setNomePet(rs.getString("nome do pet"));
-                usuario.setDataNasc(rs.getDate("datanasc"));
+                usuario.setPkUsuario(rs.getLong("codigo"));
+                usuario.setNomeDono(rs.getString("nomeDono"));
+                usuario.setTelefone(rs.getString("telefone"));
+                usuario.setNomePet(rs.getString("nomePet"));
+                usuario.setDataNasc(rs.getDate("dataNasc"));
                 usuario.setAtivo(rs.getBoolean("ativo"));
             }
 
@@ -160,12 +160,8 @@ public class UsuarioDAO {
         return usuario;
     }                           
     
-  //  "INSERT into TBUSUARIO (nome, email, "
-   //             + "senha, dataNasc, ativo) "
-    //            + "VALUES (?,?,?,?,?)";
-    
     public boolean alterarUsuario(Usuario usuario){
-        String sql = "UPDATE tbusuario SET nome = ?, email = ?, senha = ?, datanasc = ?, ativo = ? WHERE pkusuario = ? ";
+        String sql = "UPDATE tbusuario SET NomeDono = ?, Telefone = ?, NomePet = ?, DataNasc = ?, ativo = ? WHERE codigo = ? ";
         
         GerenciadorConexao gerenciador = new GerenciadorConexao();
         Connection con = gerenciador.getConexao();
@@ -193,7 +189,7 @@ public class UsuarioDAO {
     }
     
     public boolean excluirUsuario(int pkUsuario){
-        String sql = "DELETE FROM tbusuario WHERE pkusuario = ?";
+        String sql = "DELETE FROM tbusuario WHERE codigo = ?";
         
         GerenciadorConexao gerenciador = new GerenciadorConexao();
         Connection con = gerenciador.getConexao();
