@@ -39,8 +39,8 @@ public class FRMenu extends javax.swing.JFrame {
         MiSair = new javax.swing.JMenuItem();
         jMenu2 = new javax.swing.JMenu();
         MIConUsuario = new javax.swing.JMenuItem();
-        jMenuItem4 = new javax.swing.JMenuItem();
-        miSobre = new javax.swing.JMenu();
+        miAjuda = new javax.swing.JMenu();
+        miSobre = new javax.swing.JMenuItem();
 
         jMenuItem3.setText("jMenuItem3");
 
@@ -88,7 +88,7 @@ public class FRMenu extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu1);
 
-        jMenu2.setText("Consulta");
+        jMenu2.setText("Cadastros");
         jMenu2.setFont(new java.awt.Font("sansserif", 1, 14)); // NOI18N
 
         MIConUsuario.setText("Usuário");
@@ -99,19 +99,25 @@ public class FRMenu extends javax.swing.JFrame {
         });
         jMenu2.add(MIConUsuario);
 
-        jMenuItem4.setText("???");
-        jMenu2.add(jMenuItem4);
-
         jMenuBar1.add(jMenu2);
 
+        miAjuda.setText("Ajuda");
+        miAjuda.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
+        miAjuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                miAjudaActionPerformed(evt);
+            }
+        });
+
         miSobre.setText("Sobre");
-        miSobre.setFont(new java.awt.Font("SansSerif", 1, 14)); // NOI18N
         miSobre.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 miSobreActionPerformed(evt);
             }
         });
-        jMenuBar1.add(miSobre);
+        miAjuda.add(miSobre);
+
+        jMenuBar1.add(miAjuda);
 
         setJMenuBar(jMenuBar1);
 
@@ -147,8 +153,12 @@ public class FRMenu extends javax.swing.JFrame {
         new FRConUsuario(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_MIConUsuarioActionPerformed
 
+    private void miAjudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miAjudaActionPerformed
+
+    }//GEN-LAST:event_miAjudaActionPerformed
+
     private void miSobreActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_miSobreActionPerformed
-        
+        new FRSobre(this, rootPaneCheckingEnabled).setVisible(true);
     }//GEN-LAST:event_miSobreActionPerformed
 
     /**
@@ -198,8 +208,8 @@ public class FRMenu extends javax.swing.JFrame {
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JMenuItem jMenuItem3;
-    private javax.swing.JMenuItem jMenuItem4;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JMenu miSobre;
+    private javax.swing.JMenu miAjuda;
+    private javax.swing.JMenuItem miSobre;
     // End of variables declaration//GEN-END:variables
 }

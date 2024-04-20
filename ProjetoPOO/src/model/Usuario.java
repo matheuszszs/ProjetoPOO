@@ -6,6 +6,7 @@
 package model;
 
 import java.util.Date;
+import javax.swing.Icon;
 
 /**
  *
@@ -18,6 +19,23 @@ public class Usuario {
     private String nomePet;
     private Date dataNasc;
     private boolean ativo;
+    private Icon imagem;
+
+    public long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(long codigo) {
+        this.codigo = codigo;
+    }
+
+    public Icon getImagem() {
+        return imagem;
+    }
+
+    public void setImagem(Icon imagem) {
+        this.imagem = imagem;
+    }
 
     public Usuario(){};
     
