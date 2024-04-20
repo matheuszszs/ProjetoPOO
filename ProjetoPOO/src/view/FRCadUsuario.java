@@ -223,6 +223,7 @@ public class FRCadUsuario extends javax.swing.JDialog {
         Date data = Utils.converterStringToDate(
                 txtDataNasc.getText());
         usu.setDataNasc(data);
+        usu.setImagem(lblFoto.getIcon());
         
         UsuarioController controller = new UsuarioController();
         if(controller.adicionarUsuario(usu)){
@@ -301,13 +302,13 @@ public class FRCadUsuario extends javax.swing.JDialog {
         
         if(!txtNomeDono.getText().matches("^[\\p{L} ]+$")){
             JOptionPane.showMessageDialog(null,
-                    "Campo 'Nome' possui caracteres inválidos");
+                    "Campo 'NomeDono' possui caracteres inválidos");
             return false;
         }
         
         if(txtNomePet.getText().equals("")){
             JOptionPane.showMessageDialog(null,
-                    "Campo 'Telefone' em branco");
+                    "Campo 'NomePet' em branco");
             return false;
         }
         if(!txtTelefone.getText().matches(
